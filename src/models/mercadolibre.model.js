@@ -4,7 +4,7 @@ const mercadolibre_schema = mongoose.Schema({
     identificacion: {type: String, require: true, unique: true},
     numero_factura: {type: String, require: true, unique: true},
     direccion: {
-        type: object, 
+        type: Object, 
         require: true,
         ciudad:{ type: String, require: true},
         code_zip:{ type: String, require: true},
@@ -17,10 +17,19 @@ const mercadolibre_schema = mongoose.Schema({
     telefono: {type:string, require: true},
     subtotal: {type: Number, require: true},
     impuesto: {type: Number, require: true},
-    
-
-
-
-
+    total: {type: Number, require: true},
+    Metodo_pago: {
+        type: object, 
+        require: true,
+        credito: { 
+            type: Object, 
+            require: true,
+            banco: { type: String, require: true},
+            cuotas: {type: Number, require: true},
+            Fecha_Vencimiento_tarjeta: { type: Date , require: true},
+        },
+        pse: { type: Number, require: true},
+        efectivamente: {type: String , require: true}
+    },
 });
 module.exports = mongoose.model("MercadoLibreCollection", mercadolibre_schema);

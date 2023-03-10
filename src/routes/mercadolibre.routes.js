@@ -9,3 +9,19 @@ mercadolibre_routes_http.post("/", (req, res) => {
        .then((data) => res.json(data)) 
        .catch((err) => res.json({ message: err}));
 });
+mercadolibre_routes_http.get("/", (req, res) => {
+    mercadolibre_model
+        .find()
+        .then((data) => res.json(data))
+        .catch((err) => res.json({ message: err}));
+
+});
+mercadolibre_routes_http.get("/:pedidoId", (req, res) => {
+    const { pedidoId } = req.params;
+    mercadolibre_model
+        .findById({_id: pedidoId})
+        .then((data) => res.json(data))
+        .catch((err) => res.json({ message: err}));
+});
+
+module.exports = mercadolibre_routes_http;

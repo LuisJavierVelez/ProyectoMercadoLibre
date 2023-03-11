@@ -29,7 +29,7 @@ const mercadolibre_schema = mongoose.Schema({
             Fecha_Vencimiento_tarjeta: { type: Date , require: true},
         },
         pse: { type: Number, require: true},
-        efectivamente: {type: String , require: true}
+        efectivo: {type: String , require: true}
     },
 });
 module.exports = mongoose.model("MercadoLibreCollection", mercadolibre_schema);
